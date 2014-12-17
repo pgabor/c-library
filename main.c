@@ -8,6 +8,9 @@
 #include "text.h"
 //void readFileToArray(FILE * f, char *** c, int * lineCount, int maxLineLength)
 //void deleteOccurance(char * s1, char * s2)
+#include "argument.h"
+//char ** valueOfArgument(int * argc, char ** argv, char * value)
+
 int main(int argc, char *argv[])
 {
     FILE * f = fopen("random.h", "r");
@@ -19,5 +22,7 @@ int main(int argc, char *argv[])
         deleteOccurance(m[i], "a");
         printf("%s", m[i]);
     }
+    char kapcsolo[5] = "-t";
+    printf("%s\n", valueOfArgument(&argc, argv, kapcsolo));
     return 0;
 }
