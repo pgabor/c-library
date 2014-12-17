@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 //Visszater a sorok szamaval
 void readFileToArray(FILE * file, char *** c, int * lineCount, int maxLineLength)
@@ -37,4 +38,14 @@ void readFileToArray(FILE * file, char *** c, int * lineCount, int maxLineLength
         free(line);
     }
     *c = content;
+}
+
+//Torli s1 bol az osszes elofordulasat s2 nek
+void deleteOccurance(char *s1, char *s2) {
+    char *p = s1;
+    do {
+        if ((p = strstr(p, s2)) != NULL) {
+            memmove(p, p + strlen(s2), strchr(p, '\0') - p);
+        }
+    } while (p != NULL);
 }
